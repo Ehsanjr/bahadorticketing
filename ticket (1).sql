@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 10, 2023 at 04:30 PM
+-- Generation Time: Jan 10, 2023 at 06:31 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -35,9 +35,17 @@ CREATE TABLE IF NOT EXISTS `message` (
   `id_ticket` int(11) NOT NULL,
   `title_ticket` varchar(50) COLLATE utf8_persian_ci DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0',
+  `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_ticket` (`id_ticket`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `message`
+--
+
+INSERT INTO `message` (`id`, `send_message`, `recive_message`, `id_ticket`, `title_ticket`, `status`, `user_id`) VALUES
+(6, 'hello this is my first ticket', NULL, 12, 'first ticket', 0, 5);
 
 -- --------------------------------------------------------
 
@@ -54,7 +62,14 @@ CREATE TABLE IF NOT EXISTS `new_ticket` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `title` (`title`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `new_ticket`
+--
+
+INSERT INTO `new_ticket` (`id`, `title`, `content`, `user_id`) VALUES
+(12, 'first ticket', 'hello this is my first ticket', 5);
 
 -- --------------------------------------------------------
 
