@@ -4,7 +4,7 @@
         <br /><br /><br />
         <form class="answerticketform">
             <br />
-            <h3 style="margin-right: 10px; color: green; font-family: 'B Titr';">پاسخ خود را بنویسید</h3>
+            
           
             <div class="form-group">
                 <label style="color: white; margin-right: 10px;">شرح : </label>

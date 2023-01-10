@@ -1,4 +1,17 @@
-<?php include('index.php'); ?>
+<?php include('index.php');
+$link = mysqli_connect("localhost", "root", "", "ticket");
+
+if (mysqli_connect_errno())
+    exit("خطاي با شرح زير رخ داده است :" . mysqli_connect_error());
+
+$query = "SELECT title_ticket,user_id,sum(status) as sum_status,count(status) as count_status FROM message group by title_ticket,user_id";             // پرس و جوي نمايش همه محصولات فروشگاه
+
+$result = mysqli_query($link, $query);
+$counter = 0;
+while ($row[$counter] = mysqli_fetch_array($result)) {
+    $counter++;
+}
+?>
 
 <div class="col-md-6">
     <br /><br />
@@ -7,34 +20,40 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">نام کاربری</th>
-                <th scope="col">آیدی تیکت</th>
+              
                 <th scope="col">عنوان</th>
                 <th scope="col">وضعیت</th>
                 <th scope="col">بررسی</th>
             </tr>
         </thead>
         <tbody>
+            <?php
+            for ($i=0;$i<$counter;$i++)
+            {
+                $count = $row[$i]['count_status'];
+                $sum=$row[$i]['sum_status'];
+                $user_id=$row[$i]['user_id'];
+                $title=$row[$i]['title_ticket'];
+                
+                $stat = "";
+                if ($sum==$count)
+                {
+                    $stat = "بسته شده است";
+                }
+                else
+                {
+                    $stat = "در حال بررسی";
+                }
+            echo "
             <tr>
-                <td>Mark</td>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>در حال بررسی</td>
-                <td><a href="answerticket.php">پاسخ</a></td>
-            </tr>
-            <tr>
-                <td>Mark</td>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>در حال بررسی</td>
-                <td><a href="answerticket.php">پاسخ</a></td>
-            </tr>
-            <tr>
-                <td>Mark</td>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>در حال بررسی</td>
-                <td><a href="answerticket.php">پاسخ</a></td>
-            </tr>
+                <td>$user_id</td>
+       
+                <td>$title</td>
+                <td>$stat</td>
+                <td><a href=\"answerticket.php\">پاسخ</a></td>
+            </tr>";
+            }
+            ?>
         </tbody>
     </table>
 

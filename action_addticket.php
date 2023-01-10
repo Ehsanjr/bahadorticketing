@@ -24,13 +24,14 @@ if (mysqli_connect_errno())
 $query = "INSERT INTO new_ticket (title,content,user_id) VALUES ('$title','$content','$id_user')";
 if (mysqli_query($link, $query) === true) {
     $last_id = mysqli_insert_id($link);
-    $query2 = "SELECT content,title from new_ticket where id='$last_id'";
+    $query2 = "SELECT content,title,user_id from new_ticket where id='$last_id'";
     $result = mysqli_query($link, $query2);
     $row = mysqli_fetch_array($result);
     if ($row) {
         $content_message = $row['content'];
         $title_message = $row['title'];
-        $query3 = "INSERT INTO message (send_message,id_ticket,title_ticket) VALUES ('$content_message','$last_id','$title_message')";
+        $user_id = $row['user_id'];
+        $query3 = "INSERT INTO message (send_message,id_ticket,title_ticket,user_id) VALUES ('$content_message','$last_id','$title_message','$user_id')";
         if (mysqli_query($link, $query3) === true)
         {
             echo "ایجاد تیکت با موفقیت انجام شد";
