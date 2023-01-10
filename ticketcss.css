@@ -123,3 +123,14 @@ body{
     background-image: url(images/formback.jpg);
     background-size: cover;
 }
+
+.addmessageform
+{
+    margin-right: 150px;
+    width: 600px;
+    height: 400px;
+    border: 1px black solid;
+    border-radius: 20px;
+    background-image: url(images/formback.jpg);
+    background-size: cover;
+}
