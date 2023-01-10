@@ -19,7 +19,7 @@
                         <li class="sidebarli"><a>درباره ما</a></li>
                     </ul>
                     <?php
-                    if (isset ($_SESSION['login'])&&$_SESSION['login'])
+                    if (isset ($_SESSION['login'])&&$_SESSION['login'] &&!isset ($_SESSION['admin']))
                     {
                         ?>
                     <ul>
@@ -37,7 +37,7 @@
                         ?> <!--  if admin -->
                     <ul>
                         <hr style="color: white; margin-right:20px; margin-left: 20px;" />
-                        <li class="sidebarli"><a>پیگیری تیکت ها</a></li>
+                        <li class="sidebarli"><a href="adminmanageticket.php">بررسی تیکت ها</a></li>
                         <!-- <li class="sidebarli"><a>مدیریت تیکت ها</a></li> -->
                     </ul>
                     <?php
