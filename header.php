@@ -1,3 +1,7 @@
+<?php
+session_start();
+// $_SESSION['login'] = TRUE;
+?>
 <html lang="en">
 
 <head>
@@ -22,10 +26,17 @@
 
                 <h4 class="headerh4">سامانه تیکتینگ بهادر</h4>
             </div>
+            <?php
+            if (!(isset ($_SESSION['login'])&&$_SESSION['login']))
+            {
+                ?>
             <div class="col-md" id="headerbtn">
             <br/>
                 <button class="btn btn-danger" onclick="window.location.href='login.php';">ورود</button>
                 <button class="btn btn-danger" onclick="window.location.href='register.php';">ثبت نام</button>
             </div>
+            <?php
+            }
+            ?>
         </div>
     </div>

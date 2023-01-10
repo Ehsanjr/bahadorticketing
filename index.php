@@ -18,17 +18,42 @@
                         <li class="sidebarli"><a>سوالات متداول</a></li>
                         <li class="sidebarli"><a>درباره ما</a></li>
                     </ul>
+                    <?php
+                    if (isset ($_SESSION['login'])&&$_SESSION['login'])
+                    {
+                        ?>
                     <ul>
                         <hr style="color: white; margin-right:20px; margin-left: 20px;" />
                         <li class="sidebarli"><a href="addticket.php">ثبت تیکت جدید</a></li>
                         <li class="sidebarli"><a href="manageticket.php">مدیریت تیکت ها</a></li>
                     </ul>
-                    <!--  if admin -->
+                    <?php
+                    }
+                    ?>
+                   
+                    <?php
+                    if (isset ($_SESSION['login'])&&$_SESSION['login']&&isset ($_SESSION['admin'])&&$_SESSION['admin'])
+                    {
+                        ?> <!--  if admin -->
                     <ul>
                         <hr style="color: white; margin-right:20px; margin-left: 20px;" />
                         <li class="sidebarli"><a>پیگیری تیکت ها</a></li>
                         <!-- <li class="sidebarli"><a>مدیریت تیکت ها</a></li> -->
                     </ul>
+                    <?php
+                    }
+                    ?>
+                       <?php
+                    if (isset ($_SESSION['login'])&&$_SESSION['login'])
+                    {
+                        ?>
+                       <ul>
+                       <hr style="color: white; margin-right:20px; margin-left: 20px;" />
+                        <li class="sidebarli"><a href="logout.php">خروج  </a></li>
+                        </ul>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
