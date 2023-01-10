@@ -1,0 +1,125 @@
+body{
+    direction: rtl;
+    overflow-x: hidden;
+}
+
+.header
+{
+    direction: rtl;
+    width: 100%;
+    height: 100px;
+    background-color: rgb(83, 83, 227);
+}
+
+.headerh4
+{
+    font-size: xx-large;
+    font-family: 'B Nazanin';
+    color: white;
+    margin-right: 30px;
+}
+
+#headerbtn
+{
+  direction: ltr;
+  margin-left: 10px;
+}
+
+.sidebar
+{
+    width: 300px;
+    height: 1000px;
+    background-color: black;
+}
+
+.sidebarli
+{
+    color: white;
+}
+
+.main-body
+{
+    width: 100%;
+    height: 1000px;
+    background-image: url(images/back.webp);
+    background-size: cover;
+}
+
+.loginform
+{
+    margin-right: 250px;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    border: 1px black solid;
+    border-radius: 20px;
+    background-image: url(images/formback.jpg);
+    background-size: cover;
+}
+
+.registerform
+{
+    margin-right: 250px;
+    justify-content: center;
+    width: 400px;
+    height: 700px;
+    border: 1px black solid;
+    border-radius: 20px;
+    background-image: url(images/formback.jpg);
+    background-size: cover;
+}
+
+#forminput
+{
+    width: 300px;
+}
+
+.addticketform
+{
+    margin-right: 150px;
+    width: 600px;
+    height: 500px;
+    border: 1px black solid;
+    border-radius: 20px;
+    background-image: url(images/formback.jpg);
+    background-size: cover;
+}
+
+#usermanagetable
+{
+    background-color: white;
+    margin-right: 100px;
+}
+
+.editticketform
+{
+    margin-right: 150px;
+    width: 600px;
+    height: 650px;
+    border: 1px black solid;
+    border-radius: 20px;
+    background-image: url(images/formback.jpg);
+    background-size: cover;
+}
+
+.answerticketform
+{
+    margin-right: 150px;
+    width: 600px;
+    height: 800px;
+    border: 1px black solid;
+    border-radius: 20px;
+    background-image: url(images/formback.jpg);
+    background-size: cover;
+}
+
+.viewanswerform
+{
+    margin-right: 150px;
+    width: 600px;
+    height: 500px;
+    border: 1px black solid;
+    border-radius: 20px;
+    background-image: url(images/formback.jpg);
+    background-size: cover;
+}
