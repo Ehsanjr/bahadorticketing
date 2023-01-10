@@ -34,7 +34,29 @@ while ($row[$counter] = mysqli_fetch_array($result)) {
                 $sum=$row[$i]['sum_status'];
                 $user_id=$row[$i]['user_id'];
                 $title=$row[$i]['title_ticket'];
-                
+                $query2 = "SELECT user_name FROM user WHERE id='$user_id'";
+                $result2 = mysqli_query($link, $query2);
+
+                $row2 = mysqli_fetch_array($result2);
+                if ($row2) {
+                    $user_name = $row2['user_name'];
+                }
+
+
+
+                $query3 = "SELECT id_ticket FROM message WHERE title_ticket='$title' and user_id='$user_id'";
+                $result3 = mysqli_query($link, $query3);
+
+                $row3 = mysqli_fetch_array($result3);
+                if ($row3) {
+                    $ticket_id=$row3['id_ticket'];
+                }
+                else
+                {
+                    exit ("khata");
+                }
+
+
                 $stat = "";
                 if ($sum==$count)
                 {
@@ -46,12 +68,14 @@ while ($row[$counter] = mysqli_fetch_array($result)) {
                 }
             echo "
             <tr>
-                <td>$user_id</td>
+                <td>$user_name</td>
        
                 <td>$title</td>
-                <td>$stat</td>
-                <td><a href=\"answerticket.php\">پاسخ</a></td>
-            </tr>";
+                <td>$stat</td>"
+                ?>
+                <td><a href="answerticket.php?id_ticket=<?php echo $ticket_id;?>">پاسخ</a></td>
+            </tr>;
+            <?php
             }
             ?>
         </tbody>
@@ -61,4 +85,6 @@ while ($row[$counter] = mysqli_fetch_array($result)) {
 </div>
 </div>
 
-<?php include('footer.php'); ?>
+<?php
+mysqli_close($link);
+ include('footer.php'); ?>

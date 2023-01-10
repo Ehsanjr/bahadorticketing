@@ -1,10 +1,10 @@
 <?php include('index.php');
 $link = mysqli_connect("localhost", "root", "", "ticket");
-
+$userid = $_SESSION['id'];
 if (mysqli_connect_errno())
     exit("خطاي با شرح زير رخ داده است :" . mysqli_connect_error());
 
-$query = "SELECT * FROM new_ticket";           
+$query = "SELECT * FROM new_ticket where user_id='$userid'";           
 
 $result = mysqli_query($link, $query);
 $counter = 0;
@@ -22,9 +22,10 @@ while ($row[$counter] = mysqli_fetch_array($result)) {
                 <!-- <th scope="col">ID</th> -->
                 <th scope="col">عنوان</th>
                 <th scope="col">وضعیت</th>
-                <th scope="col">پاسخ ادمین</th>
+               
                 <!-- <th scope="col">ویرایش</th> -->
                 <th scope="col">حذف</th>
+                <th scope="col">پاسخ ادمین</th>
             </tr>
         </thead>
         <tbody>
@@ -33,7 +34,8 @@ while ($row[$counter] = mysqli_fetch_array($result)) {
             {
 
                 $tit=$row[$i]['title'];
-                $query2 = "SELECT sum(status) as sum_status , count(status) as count_status FROM message where title_ticket='$tit'";           
+                $ticket_id = $row[$i]['id'];
+                $query2 = "SELECT sum(status) as sum_status , count(status) as count_status FROM message where title_ticket='$tit' And user_id='$userid'";           
 
                 $result2 = mysqli_query($link, $query2);
 
@@ -54,14 +56,18 @@ while ($row[$counter] = mysqli_fetch_array($result)) {
                 }
                 
            echo "<tr>
-                <!-- <th scope=\"row\">1</th> -->
+              
                 
                 <td>$tit</td>
                 <td>$stat</td>
-                <td><a href=\"viewanswer.php\">پاسخ ادمین</a></td>
-                <!-- <td><a><img src=\"images/edit.png\" style=\"width: 20px;\"></a></td> -->
-                <td><a><img src=\"images/garbage.png\" style=\"width: 20px;\"></a></td>
-            </tr>";
+
+               
+             
+                <td><a><img src=\"images/garbage.png\" style=\"width: 20px;\"></a></td>";
+                ?>
+                <td><a href="viewanswer.php?id_ticket=<?php echo $ticket_id;?>">پاسخ ادمین</a></td>
+            </tr>;
+            <?php
             
             }
             ?>

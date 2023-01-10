@@ -1,25 +1,48 @@
-<?php include('index.php'); ?>
+<?php include('index.php');
+$link = mysqli_connect("localhost", "root", "", "ticket");
+$id_ticket = $_GET['id_ticket'];
+$_SESSION['ticket_add'] = $id_ticket;
+$userid = $_SESSION['id'];
+if (mysqli_connect_errno())
+    exit("خطاي با شرح زير رخ داده است :" . mysqli_connect_error());
+
+$query = "SELECT * FROM message where id_ticket='$id_ticket' AND user_id='$userid'";           
+$result = mysqli_query($link, $query);
+$counter = 0;
+while ($row[$counter] = mysqli_fetch_array($result)) {
+    $counter++;
+}
+ ?>
 <div class="col-md-6" style="70%">
     <div>
         <br /><br /><br />
-        <center><button type="submit" class="btn btn-success" style="margin-right: 150px; width: 500px;">افزودن پیام جدید</button></center>
+        <center><button type="submit" class="btn btn-success" style="margin-right: 150px; width: 500px;" onclick="window.location.href='addmessage.php';">افزودن پیام جدید</button></center>
         <br />
         <form class="answerticketform">
-            <br />
-            <div class="form-group">
-                <label style="color: white; margin-right: 10px;">شرح : </label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="شرح" rows="3"
-                    style="margin-right: 10px; width: 580px; height: 180px;"></textarea>
-            </div>
-            <br />
-            <div class="form-group">
-                <label style="color: white; margin-right: 10px;">پاسخ ادمین : </label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                    placeholder="پاسخ ادمین برای شما"
-                    style="margin-right: 10px; width: 580px; height: 180px;"></textarea>
-            </div>
-            <br />
-            <center><button type="submit" class="btn btn-primary">ارسال</button></center>
+            <?php
+            for ($i=0;$i<$counter;$i++)
+            {
+                echo "سوال شما";
+                echo " <br />";
+                echo $row[$i]['send_message'];
+                echo " <br />";
+                echo "پاسخ ادمین";
+                echo " <br />";
+                if (!empty ($row[$i]['recive_message']))
+                {
+                    echo $row[$i]['recive_message'];
+                }
+                else
+                {
+                    echo "ادمین هنوز پاسخی نداده است";
+                }
+                echo " <br />";
+                echo "---------------";
+                echo " <br />";
+                
+            }
+            ?>
+
         </form>
     </div>
 </div>

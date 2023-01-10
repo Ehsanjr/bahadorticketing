@@ -11,7 +11,7 @@ else {
     ?>
     <script>
         window.alert("برخی از فیلدها مقداردهی نشده‌اند");
-        location.replace('register.php');
+        location.replace('index.php');
     
     </script>
     <?php
