@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 10, 2023 at 06:31 PM
+-- Generation Time: Jan 10, 2023 at 08:48 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -40,13 +40,6 @@ CREATE TABLE IF NOT EXISTS `message` (
   KEY `id_ticket` (`id_ticket`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
---
--- Dumping data for table `message`
---
-
-INSERT INTO `message` (`id`, `send_message`, `recive_message`, `id_ticket`, `title_ticket`, `status`, `user_id`) VALUES
-(6, 'hello this is my first ticket', NULL, 12, 'first ticket', 0, 5);
-
 -- --------------------------------------------------------
 
 --
@@ -63,13 +56,6 @@ CREATE TABLE IF NOT EXISTS `new_ticket` (
   UNIQUE KEY `title` (`title`),
   KEY `user_id` (`user_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
-
---
--- Dumping data for table `new_ticket`
---
-
-INSERT INTO `new_ticket` (`id`, `title`, `content`, `user_id`) VALUES
-(12, 'first ticket', 'hello this is my first ticket', 5);
 
 -- --------------------------------------------------------
 
@@ -89,14 +75,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_name` (`user_name`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `user_name`, `email`, `password`, `is_admin`) VALUES
-(5, 'ali', 'shams', 'ali', 'ali@gmail.com', '123456', 0),
-(4, 'hedye', 'bahadori', 'hedye', 'hedye@gmail.com', '123456', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
