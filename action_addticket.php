@@ -11,7 +11,7 @@ else {
     ?>
     <script>
         window.alert("برخی از فیلدها مقداردهی نشده‌اند");
-        location.replace('index.php');
+        location.replace('addticket.php');
     
     </script>
     <?php
@@ -34,23 +34,72 @@ if (mysqli_query($link, $query) === true) {
         $query3 = "INSERT INTO message (send_message,id_ticket,title_ticket,user_id) VALUES ('$content_message','$last_id','$title_message','$user_id')";
         if (mysqli_query($link, $query3) === true)
         {
-            echo "ایجاد تیکت با موفقیت انجام شد";
+            ?>
+            <div class="col-md-6">
+            <br />
+            <br />
+            <br />
+            <center>
+                <div class="animate__animated animate__bounce" id="successlogin">
+                    <p>افزودن تیکت با موفقیت انجام شد</p>
+                </div>
+                <br />
+                <button class="btn btn-warning" onclick="window.location.href='index.php';">صفحه اصلی</button>
+            </center>
+        </div>
+        <?php
         }
         else
         {
-            echo ("ایجاد تیکت انجام نشد");
-            echo("Error description: " . $link->error);
+            ?>
+            <div class="col-md-6">
+            <br />
+            <br />
+            <br />
+            <center>
+                <div class="animate__animated animate__bounce" id="successlogin">
+                    <p>افزودن تیکت انجام نشد</p>
+                </div>
+                <br />
+                <button class="btn btn-warning" onclick="window.location.href='index.php';">صفحه اصلی</button>
+            </center>
+        </div>
+        <?php
         }
     }
     else {
-        echo ("ایجاد تیکت انجام نشد");
-        echo("Error description: " . $link->error);
+        ?>
+        <div class="col-md-6">
+        <br />
+        <br />
+        <br />
+        <center>
+            <div class="animate__animated animate__bounce" id="successlogin">
+            <p>افزودن تیکت انجام نشد</p>
+            </div>
+            <br />
+            <button class="btn btn-warning" onclick="window.location.href='index.php';">صفحه اصلی</button>
+        </center>
+    </div>
+    <?php
     }
 
     
 } else {
-    echo ("ایجاد تیکت انجام نشد");
-    echo("Error description: " . $link->error);
+    ?>
+    <div class="col-md-6">
+    <br />
+    <br />
+    <br />
+    <center>
+        <div class="animate__animated animate__bounce" id="successlogin">
+        <p>افزودن تیکت انجام نشد</p>
+        </div>
+        <br />
+        <button class="btn btn-warning" onclick="window.location.href='index.php';">صفحه اصلی</button>
+    </center>
+</div>
+<?php
 }
 mysqli_close($link);
 ?>

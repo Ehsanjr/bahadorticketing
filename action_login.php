@@ -9,7 +9,7 @@ if (check($_POST['user_name']) && check($_POST['password'])) {
     ?>
     <script>
         window.alert("برخی از فیلدها مقداردهی نشده‌اند");
-        location.replace('register.php');
+        location.replace('login.php');
 
     </script>
     <?php

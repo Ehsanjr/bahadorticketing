@@ -12,7 +12,7 @@ else
     ?>
     <script>
     window.alert("برخی از فیلدها مقداردهی نشده‌اند");
-    location.replace('index.php');
+    location.replace('addmessage.php');
     <?php
 }
 $link = mysqli_connect("localhost", "root", "", "ticket");
@@ -33,10 +33,36 @@ else
 }
 $query2 = "INSERT INTO message (send_message,id_ticket,title_ticket,user_id) VALUES ('$message','$id_ticket','$title_ticket','$id_user')";
 if (mysqli_query($link, $query2) === true) {
-    echo "پیام با موفقیت اضافه شد";
+    ?>
+    <div class="col-md-6">
+    <br />
+    <br />
+    <br />
+    <center>
+        <div class="animate__animated animate__bounce" id="successlogin">
+            <p>افزودن پیام با موفقیت انجام شد</p>
+        </div>
+        <br />
+        <button class="btn btn-warning" onclick="window.location.href='index.php';">صفحه اصلی</button>
+    </center>
+</div>
+<?php
 }
 else
 {
-    exit("khata 2");
+    ?>
+    <div class="col-md-6">
+        <br />
+        <br />
+        <br />
+        <center>
+            <div class="animate__animated animate__bounce" id="successlogin">
+                <p>افزودن پیام انجام نشد</p>
+            </div>
+            <br />
+            <button class="btn btn-warning" onclick="window.location.href='addmessage.php';">صفحه اصلی</button>
+        </center>
+    </div>
+    <?php
 }
 ?>

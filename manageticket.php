@@ -23,8 +23,6 @@ while ($row[$counter] = mysqli_fetch_array($result)) {
                 <th scope="col">عنوان</th>
                 <th scope="col">وضعیت</th>
                
-                <!-- <th scope="col">ویرایش</th> -->
-                <th scope="col">حذف</th>
                 <th scope="col">پاسخ ادمین</th>
             </tr>
         </thead>
@@ -59,11 +57,7 @@ while ($row[$counter] = mysqli_fetch_array($result)) {
               
                 
                 <td>$tit</td>
-                <td>$stat</td>
-
-               
-             
-                <td><a><img src=\"images/garbage.png\" style=\"width: 20px;\"></a></td>";
+                <td>$stat</td>";
                 ?>
                 <td><a href="viewanswer.php?id_ticket=<?php echo $ticket_id;?>">پاسخ ادمین</a></td>
             </tr>;
