@@ -35,6 +35,13 @@ body{
 .sidebarli
 {
     color: white;
+    text-decoration: none;
+}
+
+.sidebarlink
+{
+    color: white;
+    text-decoration: none;
 }
 
 .main-body
@@ -177,4 +184,14 @@ body{
     border-radius: 20px;
     background-image: url(images/formback.jpg);
     background-size: cover;
+}
+
+.about
+{
+    margin-right: 100px;
+    width: 500px;
+    height: 400px;
+    background-color: aqua;
+    border: 5px black dotted;
+    border-radius: 20px;
 }
