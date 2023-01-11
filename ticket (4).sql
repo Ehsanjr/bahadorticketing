@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 10, 2023 at 11:46 PM
+-- Generation Time: Jan 11, 2023 at 11:32 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -38,18 +38,7 @@ CREATE TABLE IF NOT EXISTS `message` (
   `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_ticket` (`id_ticket`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
-
---
--- Dumping data for table `message`
---
-
-INSERT INTO `message` (`id`, `send_message`, `recive_message`, `id_ticket`, `title_ticket`, `status`, `user_id`) VALUES
-(7, 'salam kardam', NULL, 13, 'salam', 0, 7),
-(8, 'salam kardam', NULL, 14, 'aleik', 0, 7),
-(9, 'salam kardam', NULL, 15, 'ss', 0, 8),
-(10, 'salam kardam', NULL, 16, 'tt', 0, 8),
-(11, 'salam kardam', NULL, 17, 'ss', 0, 7);
+) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 -- --------------------------------------------------------
 
@@ -65,18 +54,7 @@ CREATE TABLE IF NOT EXISTS `new_ticket` (
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uq_yourtablename` (`user_id`,`title`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
-
---
--- Dumping data for table `new_ticket`
---
-
-INSERT INTO `new_ticket` (`id`, `title`, `content`, `user_id`) VALUES
-(13, 'salam', 'salam kardam', 7),
-(14, 'aleik', 'salam kardam', 7),
-(15, 'ss', 'salam kardam', 8),
-(16, 'tt', 'salam kardam', 8),
-(17, 'ss', 'salam kardam', 7);
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 -- --------------------------------------------------------
 
