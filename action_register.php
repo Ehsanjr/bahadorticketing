@@ -50,10 +50,35 @@ if (mysqli_connect_errno())
 
 $query = "INSERT INTO user (first_name,last_name,user_name,email,password) VALUES ('$first_name','$last_name','$user_name','$email','$password')";
 if (mysqli_query($link, $query) === true) {
-
-    echo ("ثبت نام با موفقیت انجام شد");
+    ?>
+    <div class="col-md-6">
+        <br/>
+        <br/>
+        <br/>
+        <center>
+            <div class="animate__animated animate__bounce" id="successlogin">
+                <p>ثبت نام با موفقیت انجام شد</p>
+            </div>
+            <br/>
+            <button class="btn btn-warning" onclick="window.location.href='index.php';">صفحه اصلی</button>
+        </center>   
+    </div>
+    <?php
 } else {
-    echo ("ثبت نام انجام نشد");
+    ?>
+    <div class="col-md-6">
+        <br/>
+        <br/>
+        <br/>
+        <center>
+            <div class="animate__animated animate__bounce" id="successlogin">
+                <p>ثبت نام انجام نشد</p>
+            </div>
+            <br/>
+            <button class="btn btn-warning" onclick="window.location.href='register.php';">صفحه اصلی</button>
+        </center>   
+    </div>
+    <?php
 }
 
 mysqli_close($link);

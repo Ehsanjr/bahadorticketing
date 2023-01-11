@@ -13,6 +13,7 @@ session_start();
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>سامانه تیکتینگ بهادر</title>
@@ -22,20 +23,19 @@ session_start();
     <div class="header">
         <div class="row">
             <div class="col-md">
-            <br />
+                <br />
 
                 <h4 class="headerh4">سامانه تیکتینگ بهادر</h4>
             </div>
             <?php
-            if (!(isset ($_SESSION['login'])&&$_SESSION['login']))
-            {
+            if (!(isset($_SESSION['login']) && $_SESSION['login'])) {
                 ?>
-            <div class="col-md" id="headerbtn">
-            <br/>
-                <button class="btn btn-danger" onclick="window.location.href='login.php';">ورود</button>
-                <button class="btn btn-danger" onclick="window.location.href='register.php';">ثبت نام</button>
-            </div>
-            <?php
+                <div class="col-md" id="headerbtn">
+                    <br />
+                    <button class="btn btn-danger" onclick="window.location.href='login.php';">ورود</button>
+                    <button class="btn btn-danger" onclick="window.location.href='register.php';">ثبت نام</button>
+                </div>
+                <?php
             }
             ?>
         </div>

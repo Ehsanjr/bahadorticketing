@@ -10,7 +10,7 @@ if (check($_POST['user_name']) && check($_POST['password'])) {
     <script>
         window.alert("برخی از فیلدها مقداردهی نشده‌اند");
         location.replace('register.php');
-    
+
     </script>
     <?php
     exit();
@@ -31,11 +31,35 @@ if ($row) {
     if ($row['is_admin']) {
         $_SESSION["admin"] = true;
     }
-    echo "ورود با موفقیت انجام شد";
-}
-else
-{
-    echo "ورود انجام نشد";
+    ?>
+    <div class="col-md-6">
+        <br />
+        <br />
+        <br />
+        <center>
+            <div class="animate__animated animate__bounce" id="successlogin">
+                <p>ورود با موفقیت انجام شد</p>
+            </div>
+            <br />
+            <button class="btn btn-warning" onclick="window.location.href='index.php';">صفحه اصلی</button>
+        </center>
+    </div>
+    <?php
+} else {
+    ?>
+    <div class="col-md-6">
+        <br />
+        <br />
+        <br />
+        <center>
+            <div class="animate__animated animate__bounce" id="successlogin">
+                <p>ورود انجام نشد</p>
+            </div>
+            <br />
+            <button class="btn btn-warning" onclick="window.location.href='login.php';">صفحه اصلی</button>
+        </center>
+    </div>
+    <?php
 }
 mysqli_close($link);
 ?>

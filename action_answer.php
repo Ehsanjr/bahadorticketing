@@ -14,11 +14,37 @@ if (mysqli_connect_errno())
     exit("خطاي با شرح زير رخ داده است :" . mysqli_connect_error());
 $query = "UPDATE message SET recive_message='$answer',status='$k' WHERE id='$id_message'";
 if (mysqli_query($link, $query) === true) {
-    echo "پاسخ ثبت شد";
+    ?>
+    <div class="col-md-6">
+        <br />
+        <br />
+        <br />
+        <center>
+            <div class="animate__animated animate__bounce" id="successlogin">
+                <p>پاسخ ثبت شد</p>
+            </div>
+            <br />
+            <button class="btn btn-warning" onclick="window.location.href='adminmanageticket.php';">صفحه بررسی تیکت ها</button>
+        </center>
+    </div>
+    <?php
 }
 else
 {
-    echo "پاسخ ثبت نشد";
+    ?>
+    <div class="col-md-6">
+        <br />
+        <br />
+        <br />
+        <center>
+            <div class="animate__animated animate__bounce" id="successlogin">
+                <p>پاسخ ثبت نشد</p>
+            </div>
+            <br />
+            <button class="btn btn-warning" onclick="window.location.href='adminmanageticket.php';">صفحه بررسی تیکت ها</button>
+        </center>
+    </div>
+    <?php
     echo $link->error;
 }
 ?>
